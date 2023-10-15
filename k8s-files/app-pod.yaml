@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: book-api-pod
+  labels:
+    app: book-api
+spec:
+  containers:
+  - name: book-api-container
+    image: mjabersumeria/arabbank-training:booksDemo
+    ports:
+    - containerPort: 3000
+    env:
+    - name: MONGO_URI
+      value: "mongodb://mongo-service:27017/bookDB"
